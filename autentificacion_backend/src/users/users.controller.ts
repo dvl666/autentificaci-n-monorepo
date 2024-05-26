@@ -10,7 +10,7 @@ export class UsersController {
     private readonly usersService: UsersService
   ) {}
 
-  @Post()
+  @Post('register')
   async createUser(
     @Body() createUserDto: CreateUserDto
   ) {

@@ -8,9 +8,8 @@ import { AuthService } from '../../services/auth.service';
   standalone: true,
   imports: [
     FormsModule,
-  
   ],
-  providers: [AuthService],
+  providers: [],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -27,13 +26,15 @@ export class LoginComponent {
 
   onSubmit() {
     this.authService.login(this.username, this.password).subscribe(response => {
-      // Maneja la respuesta del backend aquí
       console.log(response);
+      this.authService.setUserData(response)
+      this.router.navigate(['/home'])
     }, error => {
-      // Maneja el error aquí
       console.error(error);
     });
-    // this.router.navigate(['/home'])
   }
 
+  onRegister() {
+    this.router.navigate(['/register'])
+  }
 }

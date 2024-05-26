@@ -12,6 +12,9 @@ import { AuthService } from '../services/auth.service';
     FormsModule,
     HttpClientModule,
   ],
+  providers: [
+    AuthService
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
